@@ -1,0 +1,28 @@
+[shell]
+polkit_agent = true
+telemetry_enabled = false
+setup_wizard_enabled = true
+
+[notification]
+enable_daemon = true
+
+[lockscreen]
+enabled = true
+fingerprint = false
+
+[wallpaper]
+enabled = true
+directory = "/home/tyzq/图片/Wallpaper"
+fill_mode = "crop"
+
+[wallpaper.default]
+path = "/home/tyzq/图片/Wallpaper/LUD.png"
+
+[backdrop]
+enabled = false
+
+[theme.templates]
+enable_builtin_templates = true
+enable_community_templates = true
+builtin_ids = ["niri"]
+community_ids = ["papirus-icons"]
