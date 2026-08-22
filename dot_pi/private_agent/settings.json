@@ -1,0 +1,45 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "noctalia",
+  "quietStartup": true,
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash-vision-exp",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-permission-system",
+    "npm:@mammothb/pi-ask",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-subagents",
+    "npm:@smoose/pi-footer",
+    "npm:pi-session-cleanup"
+  ],
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false,
+  "skills": [
+    "~/.codex/skills"
+  ],
+  "subagents": {
+    "agentOverrides": {
+      "scout": {
+        "model": "deepseek/deepseek-v4-pro",
+        "thinking": "medium"
+      },
+      "researcher": {
+        "model": "deepseek/deepseek-v4-pro",
+        "thinking": "medium"
+      },
+      "oracle": {
+        "model": "openai-codex/gpt-5.6-sol",
+        "thinking": "high"
+      }
+    }
+  },
+  "footer": "default",
+  "showCacheMissNotices": true,
+  "compaction": {
+    "enabled": true
+  },
+  "retry": {
+    "enabled": true
+  }
+}

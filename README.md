@@ -15,16 +15,27 @@ chezmoi apply
 执行 `apply` 前务必检查 `chezmoi diff`。完整的安装、日常维护、同步、冲突处理、
 配置回退和安全边界说明见：[中文操作指南](docs/使用指南.md)。
 
+## 配置来源
+
+`~/.local/share/chezmoi` 是用户配置的唯一长期来源，家目录是程序实际读取的部署
+结果。不要再维护独立的 Niri、Noctalia 等配置副本；如直接修改家目录，应使用
+`chezmoi re-add` 将确认后的变化收回源目录。
+
+历史系统变更见：[系统变更记录](docs/系统变更记录.md)。
+
 ## 当前管理范围
 
 - Niri、Noctalia、Waybar、Swayidle、Swaylock
 - Fish、Kitty、Starship
 - Neovim、Yazi、Fastfetch
+- Pi Agent 安全最小集（设置、Noctalia 主题、猫猫 Header 和字符画）
 - 用户环境变量、XDG Portal 和用户自启动项
 
 ## 明确排除
 
 - 认证信息、凭据、私钥、历史、日志和会话
+- Pi Agent 的 `auth.json`、运行历史、模型缓存、npm 依赖和其他未列入白名单的文件
 - `/etc`、GRUB、DNF、Snapper 等系统级配置
 - Noctalia 生成的主题片段、Fish 状态和自动生成的补全
 - 迁移备份和旧 `.bak` 文件
+- VPN 配置、连接日志、实验目录和旧 `systemconfig` 归档
