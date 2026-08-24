@@ -340,10 +340,10 @@ animations {
 
 // Global background blur parameters used by window-rule/layer-rule background-effect.
 blur {
-    passes 1
+    passes 2
     offset 3.5
     noise 0.00
-    saturation 1.2
+    saturation 1.0
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -431,6 +431,13 @@ window-rule {
 // Place Noctalia's static wallpaper in Niri's backdrop.
 layer-rule {
     match namespace=r#"^noctalia-wallpaper"#
+    place-within-backdrop true
+}
+
+// Place phonto's video wallpaper in Niri's backdrop too, so the mp4 is
+// also visible behind workspaces during Overview / workspace switching.
+layer-rule {
+    match namespace=r#"^phonto"#
     place-within-backdrop true
 }
 
