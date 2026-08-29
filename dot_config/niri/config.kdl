@@ -329,8 +329,29 @@ animations {
     }
 
     window-close {
-        duration-ms 180
-        curve "cubic-bezier" 0.4 0.0 0.2 1.0
+        duration-ms 260
+        curve "linear"
+
+        // Drift towards the bottom-right while fading out smoothly.
+        custom-shader r"
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                float progress = niri_clamped_progress;
+
+                // Ease the movement out so it starts decisively and settles gently.
+                float movement = 1.0 - pow(1.0 - progress, 3.0);
+                vec2 travel_px = min(vec2(120.0, 90.0), size_geo.xy * 0.16);
+
+                vec3 sample_geo = coords_geo;
+                sample_geo.xy -= travel_px * movement / size_geo.xy;
+
+                vec3 coords_tex = niri_geo_to_tex * sample_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+
+                // smoothstep keeps both ends of the fade free of abrupt changes.
+                float opacity = 1.0 - smoothstep(0.0, 0.82, progress);
+                return color * opacity;
+            }
+        "
     }
 
     window-movement {
