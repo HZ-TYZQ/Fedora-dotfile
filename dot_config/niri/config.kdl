@@ -100,7 +100,7 @@ output "eDP-1" {
     mode "2560x1600@240.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.5
+    scale 1.4
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -174,7 +174,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 2
 
         // Color overrides are intentionally omitted so Niri uses its defaults.
 
@@ -462,24 +462,18 @@ layer-rule {
     place-within-backdrop true
 }
 
-// Frosted-glass blur behind Noctalia's bar.
-// Namespace confirmed live via `niri msg layers`; the wallpaper and any
-// other layer surfaces are deliberately left untouched.
-// NOTE: deliberately never enable blur for noctalia-dock — when the dock
-// auto-hides, its layer surface stays mapped and fully transparent, and blur turned it
-// into a visible ghost rectangle at the bottom edge. Re-tested on 2026-08-07:
-// ghost rectangle reproduced, same transparent-surface mechanism as the popup
-// halo; the rule was removed again.
-layer-rule {
-    match namespace=r#"^noctalia-bar-default$"#
-
-    background-effect {
-        blur true
-    }
-}
-
-// Experiment: explicitly disable blur for every Noctalia layer, including
-// panels and internal transparent surfaces such as the click shield.
+// Noctalia owns its own panel backgrounds, so Niri applies no blur to any
+// Noctalia layer — including the bar, whose frosted-glass look is drawn by
+// Noctalia itself.
+//
+// NOTE: noctalia-dock must never get blur. When the dock auto-hides, its layer
+// surface stays mapped and fully transparent, and blur turned it into a visible
+// ghost rectangle at the bottom edge. Re-tested on 2026-08-07: ghost rectangle
+// reproduced, same transparent-surface mechanism as the popup halo.
+//
+// This wildcard rule is the single source of truth; do not add a more specific
+// noctalia-* blur rule above it, because later rules override earlier ones and
+// the blur would silently be cancelled again.
 layer-rule {
     match namespace=r#"^noctalia-.*$"#
 
