@@ -68,7 +68,7 @@
     },
     {
       "type": "terminalfont",
-      "key": "└ \uf031 TFO",
+      "key": "└ \uf031 FNT",
       "keyColor": "#c9a0c9",
       "format": "{name} ({size}pt)"
     },
@@ -105,7 +105,7 @@
     },
     {
       "type": "disk",
-      "key": "└ 󰋊 DIS",
+      "key": "└ 󰋊 DSK",
       "keyColor": "#b8bdc7",
       "folders": "/",
       "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}"
