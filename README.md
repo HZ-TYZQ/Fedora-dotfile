@@ -27,13 +27,15 @@ chezmoi apply
 
 - Niri、Noctalia、Waybar、Swayidle、Swaylock
 - Fish、Kitty、Starship
-- Neovim、Yazi、Fastfetch
-- Pi Agent 安全最小集（设置、Noctalia 主题、猫猫 Header 和字符画）
+- Neovim、Fastfetch
 - 用户环境变量、XDG Portal 和用户自启动项
 
 ## 明确排除
 
 - 认证信息、凭据、私钥、历史、日志和会话
+- Yazi（`~/.config/yazi`）和 Pi Agent（`~/.pi/agent`）的配置：2026-09-21 已用
+  `chezmoi forget` 退出纳管，改为纯本地维护（两者都有各自的写入方，纳管只会持续
+  产生冲突）
 - Pi Agent 的 `auth.json`、运行历史、模型缓存、npm 依赖和其他未列入白名单的文件
 - `/etc`、GRUB、DNF、Snapper 等系统级配置
 - Noctalia 生成的主题片段、Fish 状态和自动生成的补全
