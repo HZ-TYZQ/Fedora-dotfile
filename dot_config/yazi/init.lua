@@ -37,3 +37,6 @@ do
         last_time = now
     end
 end
+
+-- Sync yanked files with the system clipboard (Dolphin / Nautilus interop)
+require("fedora-clipboard"):setup()
