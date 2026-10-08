@@ -12,11 +12,8 @@ fingerprint = false
 
 [wallpaper]
 enabled = true
-directory = "/home/tyzq/图片/Wallpaper"
+# 壁纸目录和图片由 GUI 的 settings.toml 管理；无状态配置时使用默认值。
 fill_mode = "crop"
-
-[wallpaper.default]
-path = "/home/tyzq/图片/Wallpaper/LUD.png"
 
 [backdrop]
 enabled = false
