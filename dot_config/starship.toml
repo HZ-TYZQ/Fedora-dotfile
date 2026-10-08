@@ -2,6 +2,7 @@
 
 add_newline = false
 palette = "soft_pill"
+scan_timeout = 100
 
 format = """
 ([](fg:duration_bg)[ 󰔛 $cmd_duration ](fg:duration_fg bg:duration_bg)[](fg:duration_bg) )\
