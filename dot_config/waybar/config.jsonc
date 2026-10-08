@@ -78,7 +78,6 @@
   },
 
   "backlight": {
-    "device": "intel_backlight",
     "scroll-step": 5,
     "format": "{icon}  {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"]
@@ -95,8 +94,6 @@
   },
 
   "battery": {
-    "bat": "BAT0",
-    "adapter": "ADP0",
     "interval": 5,
     "states": {
       "warning": 25,
