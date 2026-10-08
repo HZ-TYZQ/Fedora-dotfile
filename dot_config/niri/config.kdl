@@ -502,6 +502,7 @@ binds {
     // Muscle memory from Windows (Win+X+I): open a terminal as well.
     Mod+X hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: Noctalia" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Ctrl+Alt+Q repeat=false hotkey-overlay-title="呼出 QQ" { spawn-sh "~/.local/bin/qq-show"; }
     Super+Alt+L allow-inhibiting=false hotkey-overlay-title="Lock the Screen: Noctalia" { spawn "noctalia" "msg" "session" "lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
